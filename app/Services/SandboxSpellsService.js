@@ -4,11 +4,15 @@ import { sandboxApi } from "./AxiosService.js"
 
 class SandboxSpellsService {
   async updateSpell(spellId) {
+    // NOTE we're using findIndex because we need the index AND the acutal object stored at that index
     const spellIndex = appState.mySpells.findIndex(s => s.id == spellId)
+    // NOTE use the index to pull out the acutal spell with bracket notation
     const foundSpell = appState.mySpells[spellIndex]
-    console.log(foundSpell);
+    // console.log(foundSpell);
+    // NOTE                                                                  VVVV send the data to my api to be changed
     const res = await sandboxApi.put(`/joe_the_mighty/spells/${spellId}`, { prepared: !foundSpell.prepared })
     console.log('[edit spell]', res.data);
+    // NOTE splice the old one out of my appstate and replace it with updated one from the api
     appState.mySpells.splice(spellIndex, 1, new Spell(res.data))
     appState.emit('mySpells')
   }
@@ -25,7 +29,7 @@ class SandboxSpellsService {
   }
   setActiveSpell(spellId) {
     let foundSpell = appState.mySpells.find(spell => spell.id == spellId)
-    console.log(foundSpell);
+    // console.log(foundSpell);
     appState.spell = foundSpell
   }
   async getMySpells() {
