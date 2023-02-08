@@ -1,0 +1,15 @@
+/* BASIC STYLES HERE */
+main{
+  background-image: url(https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.ctfassets.net%2Fswt2dsco9mfe%2F2zTQfxWw5vduhqHMGVMJKT%2F9c64c2a3249356276293a36da4dbf5f0%2F2560x1600-terrain-wa.jpg);
+  background-size: cover;
+}
+
+.gandalf{
+  height: 70vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.spell-card{
+  background-color: rgba(255, 228, 196, 0.814);
+}
