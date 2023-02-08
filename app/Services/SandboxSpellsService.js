@@ -8,7 +8,6 @@ class SandboxSpellsService {
     const spellIndex = appState.mySpells.findIndex(s => s.id == spellId)
     // NOTE use the index to pull out the acutal spell with bracket notation
     const foundSpell = appState.mySpells[spellIndex]
-    // console.log(foundSpell);
     // NOTE                                                                  VVVV send the data to my api to be changed
     const res = await sandboxApi.put(`/joe_the_mighty/spells/${spellId}`, { prepared: !foundSpell.prepared })
     console.log('[edit spell]', res.data);
